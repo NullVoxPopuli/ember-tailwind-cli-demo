@@ -11,7 +11,9 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build --environment=production",
+    "tailwind:build": "npx tailwindcss -i ./tailwind-input.css -o ./public/assets/tailwind.css",
+    "tailwind:watch": "npx tailwindcss -i ./tailwind-input.css -o ./public/assets/tailwind.css --watch",
+    "build": "npm run tailwind:build && ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
